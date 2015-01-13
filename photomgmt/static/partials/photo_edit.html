@@ -1,0 +1,17 @@
+<form class="form-horizontal" action="">
+  <% _.each(fields, function(field) { %>
+  <div class="form-group">
+    <label for="<%= field.id %>" class="col-sm-2 control-label">
+      <%= field.name %>
+    </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="<%= field.id %>" placeholder="<%= field.placeHolder %>">
+    </div>
+  </div>
+  <% }) %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default" id="photoSubmit">New Photo</button>
+    </div>
+  </div>
+</form>
