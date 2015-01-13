@@ -1,2 +1,5 @@
 *.pyc
 *.swp
+__pycache__
+static/components
+node_modules/

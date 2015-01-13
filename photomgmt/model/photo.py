@@ -1,4 +1,4 @@
-from model import db
+from photomgmt.model import db
 
 class Photo(db.Model):
     id = db.Column(db.Integer, primary_key=True)

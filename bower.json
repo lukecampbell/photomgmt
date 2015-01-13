@@ -1,0 +1,19 @@
+{
+  "name": "photomgt",
+  "version": "0.0.0",
+  "authors": [
+    "Luke Campbell <luke.s.campbell@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backgrid": "~0.3.5"
+  }
+}
