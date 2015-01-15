@@ -1,11 +1,15 @@
 <form class="form-horizontal" action="">
   <% _.each(fields, function(field) { %>
   <div class="form-group">
-    <label for="<%= field.id %>" class="col-sm-2 control-label">
+    <label for="<%= field.id %>" class="col-sm-4 control-label">
       <%= field.name %>
     </label>
-    <div class="col-sm-10">
+    <div class="col-sm-8">
+    <% if(field.fieldType == "text") { %>
       <input type="text" class="form-control" id="<%= field.id %>" placeholder="<%= field.placeHolder %>">
+    <% } else if(field.fieldType == "date") { %>
+      <input data-date-format="yyyy-mm-dd" data-provide="datepicker" class="form-control" id="<%= field.id %>" placeholder="<%= field.placeHolder %>">
+    <% } %>
     </div>
   </div>
   <% }) %>
