@@ -12,10 +12,15 @@ from photomgmt.model import db, Photo
 def index():
     return render_template('index.html')
 
+@app.route('/sbadmin')
+def sbadmin():
+    return render_template('sbadmin.html')
+
 manager = APIManager(app, flask_sqlalchemy_db=db)
 manager.create_api(Photo, methods=['GET', 'POST', 'PUT', 'DELETE'])
 
 def initialize_db():
     from photomgmt.model import db
+    db.drop_all()
     db.create_all()
 
