@@ -6,7 +6,7 @@ var PhotoModel = Backbone.Model.extend({
     title: '',
     date: '',
     res_x: 0.0,
-    rex_y: 0.0,
+    res_y: 0.0,
     file_type: "",
     exif_iso: 0,
     exif_shutter_speed: "",
@@ -30,8 +30,8 @@ var PhotoView = Backbone.View.extend({
   initialize: function() {
     // the following functions will be bound to "this"
     _.bindAll(this, "render", "submit", "inputChanged");
-    this.render();
     this.model = new PhotoModel();
+    this.render();
   },
   /*
    * the template accepts a parameter "fields", each field needs
@@ -55,9 +55,13 @@ var PhotoView = Backbone.View.extend({
    */
   submit: function(e) {
     e.preventDefault();
+    this.model.save(this.model.toJSON(), {
+      error: function(model, response) {
+        console.error("WHAT");
+        console.log(response);
+      }
+    });
     $(e.target).closest('form').find("input, textarea").val("");
-    this.model.save();
-    console.log(this.model.toJSON());
     this.model = new PhotoModel();
   },
   /*
